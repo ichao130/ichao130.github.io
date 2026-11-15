@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>TalkTime — 通話中の2人で、同じ時刻にアラーム</title>
+<meta name="description" content="通話中の2人が同じ終了時刻を共有し、2台の iPhone で同時にアラームと振動を鳴らすタイマー。A shared timer for your calls.">
+<script>
+  // App Store の ID（公開前は空）。空のあいだは App Store へのリンクを出さない
+  var APP_STORE_ID = "";
+  document.documentElement.setAttribute("data-lang", /^ja\b/i.test(navigator.language || "") ? "ja" : "en");
+</script>
+<style>
+  :root { --bg:#f5f6fa; --card:#fff; --text:#15161a; --sub:#5f6370; --accent:#2f6bff; --accent-text:#fff; --chip:#eef1fb; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0e0f13; --card:#1b1d24; --text:#f2f3f7; --sub:#a3a7b3; --accent:#6e96ff; --accent-text:#0e0f13; --chip:#262a36; }
+  }
+  html[data-lang="en"] .ja, html:not([data-lang="en"]) .en { display: none !important; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); line-height:1.6;
+    font-family:-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Segoe UI", Roboto, sans-serif; }
+  main { max-width:640px; margin:0 auto; padding:max(32px, env(safe-area-inset-top)) 20px 40px; }
+  .hero { text-align:center; }
+  .phones { font-size:44px; letter-spacing:12px; }
+  h1 { font-size:clamp(28px, 7vw, 40px); margin:8px 0; line-height:1.25; }
+  .lead { color:var(--sub); font-size:18px; }
+  .button { display:inline-block; margin-top:20px; padding:16px 28px; border-radius:18px; background:var(--accent);
+    color:var(--accent-text); font-weight:700; font-size:18px; text-decoration:none; }
+  .steps { display:grid; gap:14px; margin-top:32px; padding:0; list-style:none; }
+  .steps li { background:var(--card); border-radius:20px; padding:20px; box-shadow:0 8px 24px rgba(0,0,0,.05); }
+  .steps b { display:block; color:var(--accent); font-size:14px; }
+  .steps h2 { margin:4px 0; font-size:21px; }
+  .steps p { margin:0; color:var(--sub); }
+  .points { margin-top:28px; padding-left:1.2em; }
+  .points li { margin:6px 0; }
+  footer { margin-top:36px; text-align:center; color:var(--sub); font-size:14px; }
+  footer a { color:var(--sub); }
+  .hidden { display:none; }
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="phones" aria-hidden="true">📱📱</div>
+    <h1><span class="ja">通話中の2人で、<br>同じ時刻にアラーム</span><span class="en">A shared timer<br>for your calls</span></h1>
+    <p class="lead">
+      <span class="ja">「30分だけ話そう」を、2人のスマホで同時に知らせます。終了時刻を伝えるだけで、2台の iPhone が同じ時刻に振動します。</span>
+      <span class="en">Agree on “just 30 minutes” and let both phones keep time. Share the end time once, and both iPhones buzz at the same moment.</span>
+    </p>
+    <a id="store" class="button hidden" href="#"><span class="ja">App Store で入手</span><span class="en">Download on the App Store</span></a>
+  </section>
+
+  <ol class="steps">
+    <li>
+      <b><span class="ja">ステップ 1</span><span class="en">Step 1</span></b>
+      <h2><span class="ja">開始する</span><span class="en">Start</span></h2>
+      <p><span class="ja">通話しながら、話す時間を選んで「開始」を押します。</span><span class="en">During a call, pick how long to talk and tap Start.</span></p>
+    </li>
+    <li>
+      <b><span class="ja">ステップ 2</span><span class="en">Step 2</span></b>
+      <h2><span class="ja">コードを伝える</span><span class="en">Tell the code</span></h2>
+      <p><span class="ja">終了時刻か4桁のコード（13:30 なら 1330）を口で伝えるか、メッセージアプリでリンクを送ります。</span><span class="en">Say the end time or the 4-digit code (1330 for 13:30), or send a link in any messaging app.</span></p>
+    </li>
+    <li>
+      <b><span class="ja">ステップ 3</span><span class="en">Step 3</span></b>
+      <h2><span class="ja">2人同時に鳴る</span><span class="en">Both phones alert together</span></h2>
+      <p><span class="ja">相手がコードを入れれば、終了時刻に2台が同時にアラームと振動で知らせます。</span><span class="en">Once the other person enters it, both iPhones ring and vibrate at the end time.</span></p>
+    </li>
+  </ol>
+
+  <ul class="points">
+    <li><span class="ja">アカウント登録も友だち追加も不要</span><span class="en">No accounts, no sign-up</span></li>
+    <li><span class="ja">マナーモードや集中モード中でも鳴るアラーム</span><span class="en">Alarms that ring in Silent mode and Focus</span></li>
+    <li><span class="ja">残り5分・1分の予告と、その場で延長</span><span class="en">Heads-up at 5 and 1 minutes left, and extend on the spot</span></li>
+    <li><span class="ja">ロック画面とダイナミックアイランドに残り時間</span><span class="en">Time left on the Lock Screen and in the Dynamic Island</span></li>
+    <li><span class="ja">通信もデータの収集も一切なし</span><span class="en">No network access, no data collection</span></li>
+  </ul>
+
+  <footer>
+    <a href="./privacy.html"><span class="ja">プライバシーポリシー</span><span class="en">Privacy Policy</span></a> ·
+    <a href="./support.html"><span class="ja">サポート</span><span class="en">Support</span></a>
+  </footer>
+</main>
+<script>
+  if (APP_STORE_ID) {
+    var store = document.getElementById("store");
+    store.href = "https://apps.apple.com/app/id" + encodeURIComponent(APP_STORE_ID);
+    store.classList.remove("hidden");
+  }
+</script>
+</body>
+</html>

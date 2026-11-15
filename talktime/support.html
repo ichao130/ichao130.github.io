@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>TalkTime — サポート / Support</title>
+<script>
+  document.documentElement.setAttribute("data-lang", /^ja\b/i.test(navigator.language || "") ? "ja" : "en");
+</script>
+<style>
+  :root { --bg:#f5f6fa; --card:#fff; --text:#15161a; --sub:#5f6370; --accent:#2f6bff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e0f13; --card:#1b1d24; --text:#f2f3f7; --sub:#a3a7b3; --accent:#6e96ff; } }
+  html[data-lang="en"] .ja, html:not([data-lang="en"]) .en { display:none !important; }
+  body { margin:0; background:var(--bg); color:var(--text); line-height:1.7;
+    font-family:-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Segoe UI", Roboto, sans-serif; }
+  main { max-width:680px; margin:0 auto; padding:max(28px, env(safe-area-inset-top)) 20px 40px; }
+  h1 { font-size:26px; margin-top:0; }
+  details { background:var(--card); border-radius:16px; padding:16px 18px; margin:12px 0; }
+  summary { font-weight:700; cursor:pointer; }
+  details p, details ul { margin:10px 0 0; }
+  a { color:var(--accent); }
+  .contact { margin-top:28px; background:var(--card); border-radius:16px; padding:18px; }
+  nav { margin-bottom:16px; font-size:15px; }
+</style>
+</head>
+<body>
+<main>
+  <nav><a href="./">TalkTime</a></nav>
+
+  <section class="ja" lang="ja">
+    <h1>サポート</h1>
+
+    <details open>
+      <summary>終了時刻になっても鳴らない</summary>
+      <ul>
+        <li>iOS の「設定 &gt; TalkTime」で「通知」と「アラーム」が許可されているか確かめてください。アプリの「設定 &gt; 権限」でも状態を確認できます。</li>
+        <li>アラームが許可されていないときは通知で知らせます。集中モード中にも届くよう、通知の「時間確定通知」をオンにしてください。</li>
+        <li>通知もアラームも許可されていないと、アプリを開いているときしか鳴りません（実行中の画面に赤い警告が出ます）。</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>通話中の鳴り方</summary>
+      <p>通話中の iPhone では、アラーム音や通知音が控えめになったり、受話口から小さく流れたりします。TalkTime は振動を主な合図と考えています。耳に当てたままでも振動で気づけるよう、残り5分・1分の予告も振動つきで届きます。</p>
+    </details>
+
+    <details>
+      <summary>2人の終了時刻やコードが合わない</summary>
+      <ul>
+        <li>実行中の画面に終了時刻とコードが出ています。口頭で照合してください。違っていたら、どちらかが「コードで参加」（実行中の画面では左上の # ボタン）から相手のコードを入れ直してください。</li>
+        <li>コードは端末の時刻（ローカル時刻）として解釈します。2人が違うタイムゾーンにいるときは、リンクで共有してください。</li>
+        <li>延長したときは、相手にも新しい終了時刻を伝えてください。延長は相手に自動では伝わりません。</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>相手がアプリを持っていない</summary>
+      <p>「リンクを送る」で送ったリンクを開くと、App Store への案内が出ます。インストールした後は、リンクのページに出ている4桁のコードを「コードで参加」に入れてください。</p>
+    </details>
+
+    <details>
+      <summary>リンクを開いてもアプリが開かない</summary>
+      <p>LINE などのアプリの中のブラウザでは、アプリが開かないことがあります。そのときはページに出ている4桁のコードを、アプリの「コードで参加」に入力してください。</p>
+    </details>
+
+    <div class="contact">
+      <strong>お問い合わせ</strong>
+      <p>不具合のご報告やご要望は、<a href="https://github.com/ichao130/ichao130.github.io/issues">GitHub の Issues</a> からお願いします。</p>
+    </div>
+  </section>
+
+  <section class="en" lang="en">
+    <h1>Support</h1>
+
+    <details open>
+      <summary>It didn't ring at the end time</summary>
+      <ul>
+        <li>In iOS Settings &gt; TalkTime, make sure Notifications and Alarms are allowed. You can also check them in the app under Settings &gt; Permissions.</li>
+        <li>If alarms aren't allowed, TalkTime uses notifications instead. Turn on Time Sensitive notifications so they reach you during Focus.</li>
+        <li>Without notifications or alarms, TalkTime can only ring while the app is open (the running screen shows a red warning).</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>How it sounds during a call</summary>
+      <p>During a call, iPhone may play alarms and notifications quietly or through the earpiece. TalkTime treats vibration as the main signal, and the heads-up alerts at 5 and 1 minutes left also vibrate so you can feel them with the phone at your ear.</p>
+    </details>
+
+    <details>
+      <summary>Our end times or codes don't match</summary>
+      <ul>
+        <li>The running screen always shows the end time and the code, so you can check them out loud. If they differ, one of you can enter the other's code with “Join with code” (the # button on the running screen).</li>
+        <li>Codes are read as your device's local time. If you're in different time zones, share a link instead.</li>
+        <li>When you extend, tell the other person the new end time. Extensions aren't shared automatically.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>The other person doesn't have the app</summary>
+      <p>When they open the link you sent with “Send link”, the page points them to the App Store. After installing, they can enter the 4-digit code shown on the page in “Join with code”.</p>
+    </details>
+
+    <details>
+      <summary>The link doesn't open the app</summary>
+      <p>In-app browsers such as LINE's may not open other apps. Enter the 4-digit code shown on the page in “Join with code” instead.</p>
+    </details>
+
+    <div class="contact">
+      <strong>Contact</strong>
+      <p>Please report problems or send requests through <a href="https://github.com/ichao130/ichao130.github.io/issues">GitHub Issues</a>.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>
